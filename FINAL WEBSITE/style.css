@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background: rgba(255, 165, 0, 0.5); /* Orange with 50% opacity */
+    backdrop-filter: blur(40px);
+    border-right: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    padding: 6px 14px;
+    transition: width 0.5s ease;
+    z-index: 1000; /* Ensure a high z-index */
+}
+
+.sidebar.active {
+    width: 260px;
+}
+
+.sidebar .logo-menu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+}
+
+.sidebar .logo-menu .logo {
+    font-size: 25px;
+    color: #fff;
+    pointer-events: none;
+    opacity: 0;
+    transition: .3s;
+}
+
+.sidebar.active .logo-menu .logo {
+    opacity: 1;
+    transition-delay: .2s;
+
+}
+
+.sidebar .logo-menu .toggle-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px; 
+    cursor:auto;
+    transition: .5s;
+}
+
+.sidebar.active .logo-menu .toggle-btn {
+    left: 90%;
+}
+
+.sidebar .list {
+    margin-top: 10px;
+    color: #000; /* Set text color to black */
+}
+
+.list .list-item {
+    list-style: none;
+    width: 100%;
+    height: 50px;
+    margin: 5px 0;
+    line-height: 50px;
+}
+
+.list .list-item a {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #000; /* Set link text color to black */
+    text-decoration: none;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: .5s;
+}
+
+.list .list-item.active a,
+.list .list-item a:hover {
+    background: rgba(0, 0, 0, .2); /* Set background to black with 20% opacity */
+}
+
+.list .list-item a i {
+    min-width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.sidebar .link-name {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+
+.sidebar.active .link-name {
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: calc(.1s * var(--i));
+}
+
+.sidebar.active .link-name {
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: calc(.1s * var(--i));
+}
+
+body{
+    color: #ededed;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+
+}
+
+.logo{
+    position: relative;
+    font-size: 25px;
+    color: orange;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: showRight 1s ease forwards;
+    animation-delay: .4s;
+
+}
+
+.navbar a{
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s;
+}
+.navbar a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: showRight 1s ease forwards;
+    animation-delay: .4s;
+}
+.navbar a:hover,
+.navbar a.active {
+    color: orange;
+
+}
+
+.home-image {
+    position: absolute;
+    top: 50%;
+    right: 5%; /* Adjust the distance from the right side */
+    width: 800px; /* Adjust the width as per your requirement */
+    height: auto; /* To maintain aspect ratio */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+    box-shadow: 0 0 150px rgba(0, 0, 0, 0.2); /* Optional: Adds shadow */
+    z-index: 1; /* Ensure it appears above other elements */
+    transform: translateY(-50%); /* Centers vertically */
+}
+
+.home-image:hover {
+    background-color: orange; /* Change the background color to orange */
+    opacity: 0.6; /* Adjust the opacity as per your preference */
+    transition: background-color 0.5s, opacity 0.5s; /* Add smooth transition */
+}
+
+.home-image img {
+    width: 100%; /* Ensure the image fills its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.home-image a {
+    display: block; /* Make the link fill its container */
+}
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: gray;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+    font-size: 70px;
+    transition: background-color 0.5s ease;
+    z-index: 2; /* Ensure buttons are above the image */
+}
+
+.prev:hover,
+.next:hover {
+    color: orange;
+}
+
+.prev {
+    left: -75px; /* Adjust the distance from the left */
+}
+
+.next {
+    right: -75px; /* Adjust the distance from the right */
+}
+
+
+.home{
+    display: flex;
+    background: white;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 10%;
+
+}
+
+.home-content {
+    max-width: 650px;
+
+}
+
+.home-content h1 {
+    line-height: 1.2;
+    color: black;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+
+.home-content h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: showRight 3.5s ease forwards;
+    animation-delay: .4s;
+}
+
+
+
+.home-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: orange;
+}
+
+.home-content p {
+    font-size: 16px;
+    margin: 20px 0 40px;
+    color: black;
+
+}
+
+.home-content .btn-box {
+    display: flex;
+    justify-content: space-between;
+    width: 345px;
+    height: 50px;
+    height: 50px;
+    
+}
+
+.btn-box a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    background: orange;
+    border: 2px solid orange;
+    border-radius: 8px;
+    font-size: 19px;
+    color: black;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+
+}
+
+.btn-box a:hover {
+    color: orange;
+}
+
+.btn-box a:nth-child(2) {
+    background: transparent;
+    color: orange;
+
+}
+
+.btn-box a:nth-child(2):hover {
+    color: white;
+}
+
+
+.btn-box a:nth-child(2)::before {
+    background: orange;
+
+}
+
+
+.btn-box a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: white;
+    z-index: -1;
+    transition: .5s;
+
+}
+
+.btn-box a:hover::before {
+    width: 100%;
+}
+
+.home-sci {
+    position: absolute;
+    bottom: 40px;
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.home-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid orange;
+    border-radius: 50%;
+    font-size: 20px;
+    color: orange;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+
+}
+
+.home-sci a:hover {
+    color: black;
+}
+
+.home-sci a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: orange;
+    z-index: -1;
+    transition: .5s;
+
+
+}
+
+.home-sci a:hover::before {
+    width: 100%;
+}
+
+.home-imgHover {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 1000px;
+    height: 100%;
+    background: transparent;
+    transition: 3s;
+    
+}
+
+.home-imgHover:hover {
+    background: rgba(255, 165, 0, 0.5); /* Orange with 50% opacity */
+    opacity: .8;
+
+
+}
+
+/* Key Frame Animation */
+
+@keyframes showRight {
+    100%{
+        width: 0;
+
+    }
+}
+

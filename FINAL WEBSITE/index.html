@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Main Page?
+    </title>  
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+
+    <nav class="sidebar">
+        <div class="logo-menu">
+            <h2 class="logo">SneakHub</h2>
+            <i class='bx bx-menu toggle-btn'></i>
+        </div>
+
+        <ul class="list">
+            <li class="list-item active">
+                <a href="male.html">
+                    <i class='bx bx-male-sign' ></i>
+                    <span class="link-name" style="--i:1;">Men</span>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="women.html">
+                    <i class='bx bx-female-sign' ></i>
+                    <span class="link-name" style="--i:2;" >Women</span>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="child.html">
+                    <i class='bx bx-child' ></i>
+                    <span class="link-name" style="--i:3;">Kids</span>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="sale.html">
+                    <i class='bx bx-purchase-tag-alt' ></i>
+                    <span class="link-name" style="--i:4;">Sale</span>
+                </a>
+            </li>
+            <li class="list-item">  
+                <a href="cart.html">
+                    <i class='bx bx-cart' ></i>
+                    <span class="link-name" style="--i:5;">Cart</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <script src="script1.js"></script>
+    <header class="header">
+        <a href="#" class="logo">SneakHub</a>
+        <i class='bx bx-child' ></i>
+
+        <nav class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home">
+        <div class="home-content">
+            <h1>Welcome to SneakHub!</h1>
+            <h3>Shop Now!</h3>
+            <p>Step into a World of Style and Comfort: Welcome to SneakHub, 
+                Your Premier Destination for the Latest and Greatest in Footwear Fashion! Explore Our Vast Collection, 
+                Elevate Your Look, and Step Out in Confidence with Every Pair.</p>
+            <div class="btn-box">
+                <a href="signup.html">Sign Up</a>
+                <a href="signup.html">Log In</a>
+            </div>
+            <div class="home-image">
+                <div class="image">
+                    <div class="single-image">
+                        <a href="trend.html">
+                            <img src="BG.png" alt="Image 1">
+                        </a>
+                    </div>
+                    <div class="single-image">
+                        <a href="#">
+                            <img src="1.png" alt="Image 1">
+                        </a>
+                    </div>
+                    <div class="single-image">
+                        <img src="2.png" alt="Image 2">
+                    </div>
+                    <div class="single-image">
+                        <img src="3.png" alt="Image 3">
+                    </div>
+                    <div class="single-image">
+                        <img src="4.png" alt="Image 4">
+                    </div>
+                </div>
+                <button class="prev" onclick="prevSlide()">&#60;</button> <!-- This is for '<' symbol -->
+                <button class="next" onclick="nextSlide()">&#62;</button> <!-- This is for '>' symbol -->
+            </div>
+            
+            <script>
+                let index = 0;
+                const slides = document.querySelectorAll('.single-image');
+                const totalSlides = slides.length;
+                
+                function showSlide() {
+                    slides.forEach(slide => {
+                        slide.style.display = 'none';
+                    });
+                
+                    slides[index].style.display = 'block';
+                }
+                
+                function prevSlide() {
+                    index = (index - 1 + totalSlides) % totalSlides;
+                    showSlide();
+                }
+                
+                function nextSlide() {
+                    index = (index + 1) % totalSlides;
+                    showSlide();
+                }
+                
+                showSlide();
+            </script>
+        </div>
+
+        <div class="home-sci">
+            <a href="https://www.facebook.com/kenney.kawamatsu.7"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-twitter' ></i></a>
+            <a href="#"><i class='bx bxl-linkedin' ></i></a>
+        </div>
+        <span class="home-imgHover"></span>
+
+    </section>
+
+</body>
+
+</html>
